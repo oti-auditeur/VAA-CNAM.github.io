@@ -1,0 +1,131 @@
+@startuml
+
+class Utilisateur {
+  - Id_Utilisateur
+  - Nom
+  - Prénom
+  - Adresse_e_mail
+  - Mot_de_passe
+  + seConnecter()
+  + s'inscrire()
+  + consulterProfil()
+}
+
+class Rameur {
+  - Id_Rameur
+  - Niveau_d_expérience
+  - Préférences_de_participation
+  - Autres_informations_de_profil
+  + enregistrerPerformance()
+  + consulterEntraînements()
+}
+
+class Entraînement {
+  - Id_Entraînement
+  - Date_et_heure
+  - Lieu
+  - Objectifs
+  - Exercices_prévus
+  - Niveau_de_difficulté
+  - Places_disponible
+  + inscrireRameur()
+  + consulterPrésences()
+}
+
+class Présence {
+  - Id_Présence
+  - Date_Heure
+  - Membre_Présent
+}
+
+class Message {
+  - Id_Message
+  - Contenu_du_message
+  - Date_Heure_de_l_envoi
+  + envoyerMessage()
+  + consulterMessages()
+}
+
+class Performance {
+  - Id_Performance
+  - Temps
+  - Distance_Parcourue
+  - Autres_mesures_pertinentes
+}
+
+class Élément_Culturel {
+  - Id_Élément_Culturel
+  - Titre
+  - Description
+  - Type_vidéo_article_événement
+  + consulterÉlément()
+}
+
+class Données_Sensibles {
+  - Id_Données_sensibles
+  - Données_personnelles_sensibles
+}
+
+class Support_Client {
+  - Id_Support_Client
+  - Type_de_demande
+  - Statut
+  - Description_de_la_demande
+  + créerTicket()
+  + consulterTickets()
+}
+
+class Récompense {
+  - Id_Récompense
+  - Points_ou_récompenses_virtuelles
+  + consulterRécompenses()
+}
+
+class Pointer {
+}
+
+class Envoyer_Recevoir {
+}
+
+class Enregistrer {
+}
+
+class Participer {
+}
+
+class Accéder {
+}
+
+class Avoir {
+}
+
+class Soumettre {
+}
+
+class Gagner {
+}
+
+class Planifier {
+}
+
+Utilisateur <|-- Rameur
+Utilisateur "1" -- "*" Message
+Utilisateur "1" -- "1" Données_Sensibles
+Utilisateur "1" -- "*" Support_Client
+Utilisateur "1" -- "*" Élément_Culturel
+Rameur "1" -- "*" Performance
+Rameur "*" -- "*" Entraînement : Participer
+Entraînement "1" -- "*" Présence : Planifier
+Rameur "*" -- "*" Message : Envoyer_Recevoir
+Rameur "*" -- "*" Performance : Enregistrer
+Rameur "*" -- "1" Données_Sensibles : Avoir
+Rameur "*" -- "1" Support_Client : Soumettre
+Rameur "*" -- "*" Récompense : Gagner
+Entraînement "1" -- "*" Présence
+Rameur "*" -- "*" Pointer
+Rameur "*" -- "*" Envoyer_Recevoir
+Rameur "*" -- "*" Enregistrer
+Rameur "*" -- "*" Participer
+Rameur "*" -- "*" Accéder
+Entraînement "*" -- "*" Planifier
+@enduml
