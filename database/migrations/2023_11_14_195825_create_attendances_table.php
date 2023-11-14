@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('cultural_elements', function (Blueprint $table) {
-            $table->integer('cultural_elements_id')->primary();
-            $table->integer('paddlers_id')->nullable();
+        Schema::create('attendances', function (Blueprint $table) {
+            $table->integer('attendances_id')->primary();
+            $table->integer('trainings_id')->index()->nullable();
+            $table->foreign('trainings_id')->references('trainings_id')->on('trainings');
+            $table->integer('team_id')->index()->nullable();
+            $table->foreign('team_id')->references('team_id')->on('trainings__team');
+            $table->integer('paddlers_id')->index()->nullable();
             $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
-            $table->string('title', 255)->nullable();
-            $table->string('description', 255)->nullable();
-            $table->string('type_video_article_event', 255)->nullable();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cultural_elements');
+        Schema::dropIfExists('attendances');
     }
 };

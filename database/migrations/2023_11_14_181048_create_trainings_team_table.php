@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('performances', function (Blueprint $table) {
-            $table->integer('performances_id')->primary();
-            $table->integer('paddlers_id')->nullable();
-            $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
+        Schema::create('trainings_team', function (Blueprint $table) {
+            $table->integer('trainings_team_id')->primary();
             $table->integer('trainings_id')->nullable();
             $table->foreign('trainings_id')->references('trainings_id')->on('trainings');
-            $table->time('time')->nullable();
-            $table->float('distance_traveled')->nullable();
+            $table->integer('paddlers_id')->nullable();
+            $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
         });
 
         Schema::enableForeignKeyConstraints();
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('performances');
+        Schema::dropIfExists('trainings_team');
     }
 };

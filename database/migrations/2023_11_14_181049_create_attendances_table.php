@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('attendances_id')->primary();
             $table->integer('trainings_id')->nullable();
             $table->foreign('trainings_id')->references('trainings_id')->on('trainings');
-            $table->integer('team_id')->nullable();
-            $table->foreign('team_id')->references('team_id')->on('trainings__team');
+            $table->integer('trainings_team_id')->nullable();
+            $table->foreign('trainings_team_id')->references('trainings_team_id')->on('trainings__team');
             $table->integer('paddlers_id')->nullable();
             $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
         });

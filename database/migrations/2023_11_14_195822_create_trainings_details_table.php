@@ -15,11 +15,11 @@ return new class extends Migration
 
         Schema::create('trainings_details', function (Blueprint $table) {
             $table->integer('trainings_details_id')->primary();
-            $table->integer('trainings_id')->nullable();
+            $table->integer('trainings_id')->index()->nullable();
             $table->foreign('trainings_id')->references('trainings_id')->on('trainings');
-            $table->integer('team_id')->nullable();
+            $table->integer('team_id')->index()->nullable();
             $table->foreign('team_id')->references('team_id')->on('trainings__team');
-            $table->integer('canoes_id')->nullable();
+            $table->integer('canoes_id')->index()->nullable();
             $table->foreign('canoes_id')->references('canoes_id')->on('canoes');
             $table->dateTime('date_time')->nullable();
             $table->string('location', 255)->nullable();

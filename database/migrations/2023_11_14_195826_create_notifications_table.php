@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('penalties', function (Blueprint $table) {
-            $table->integer('penalties_id')->primary();
-            $table->index('trainings_id');
-            $table->integer('paddlers_id')->nullable();
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->integer('notifications_id')->primary();
+            $table->integer('paddlers_id')->index()->nullable();
             $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
-            $table->integer('trainings_id')->nullable();
-            $table->foreign('trainings_id')->references('trainings_id')->on('trainings');
-            $table->string('description', 255)->nullable();
+            $table->dateTime('received_datetime')->nullable();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('penalties');
+        Schema::dropIfExists('notifications');
     }
 };
