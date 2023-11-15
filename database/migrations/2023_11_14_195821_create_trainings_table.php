@@ -6,19 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::disableForeignKeyConstraints();
 
         Schema::create('trainings', function (Blueprint $table) {
-            $table->integer('trainings_id')->primary();
-            $table->integer('trainer_id')->index()->nullable();
-            $table->foreign('trainer_id')->references('trainers_id')->on('trainers');
-            $table->integer('free_places_id')->index()->nullable();
-            $table->foreign('free_places_id')->references('canoes_id')->on('canoes');
+            $table->id();  // Utilisez "id" au lieu de "integer"
+            $table->unsignedBigInteger('trainers_id')->index()->nullable();  // Utilisez "unsignedBigInteger" pour les clés étrangères
+            $table->foreign('trainers_id')->references('id')->on('trainers');
+            $table->unsignedBigInteger('canoes_id')->index()->nullable();
+            $table->foreign('canoes_id')->references('id')->on('canoes');
             $table->dateTime('date_time')->nullable();
             $table->string('location', 255)->nullable();
             $table->string('goals', 255)->nullable();
@@ -29,9 +26,6 @@ return new class extends Migration
         Schema::enableForeignKeyConstraints();
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('trainings');

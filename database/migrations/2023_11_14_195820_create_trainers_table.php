@@ -6,15 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::disableForeignKeyConstraints();
 
         Schema::create('trainers', function (Blueprint $table) {
-            $table->integer('trainers_id')->primary();
+            $table->id();  // Utilisez "id" au lieu de "integer"
             $table->string('name', 255)->nullable();
             $table->string('first_name', 255)->nullable();
             $table->date('birthday')->nullable();
@@ -25,9 +22,6 @@ return new class extends Migration
         Schema::enableForeignKeyConstraints();
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('trainers');

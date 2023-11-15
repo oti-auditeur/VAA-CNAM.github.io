@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('cultural_elements', function (Blueprint $table) {
-            $table->integer('cultural_elements_id')->primary();
-            $table->integer('paddlers_id')->index()->nullable();
-            $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
-            $table->string('title', 255)->nullable();
-            $table->string('description', 255)->nullable();
-            $table->string('type_video_article_event', 255)->nullable();
-        });
+        if (!Schema::hasTable('cultural_elements')) {
+            Schema::create('cultural_elements', function (Blueprint $table) {
+                $table->id();  // Utilisez "id" au lieu de "integer"
+                $table->unsignedBigInteger('paddlers_id')->index()->nullable();
+                $table->foreign('paddlers_id')->references('id')->on('paddlers');
+                $table->string('title', 255)->nullable();
+                $table->string('description', 255)->nullable();
+                $table->string('type_video_article_event', 255)->nullable();
+            });
+        }
 
         Schema::enableForeignKeyConstraints();
     }

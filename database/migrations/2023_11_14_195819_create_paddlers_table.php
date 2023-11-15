@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('paddlers', function (Blueprint $table) {
-            $table->increments('paddlers_id'); // Utilisez increments pour déclarer une clé primaire auto-incrémentée
+            $table->id(); // Utilisation de la méthode id() pour définir la clé primaire
             $table->string('name', 255)->nullable();
             $table->string('first_name', 255)->nullable();
             $table->date('birthday')->nullable();
@@ -24,9 +24,9 @@ return new class extends Migration
         });
 
         Schema::create('cultural_elements', function (Blueprint $table) {
-            $table->increments('cultural_elements_id');
-            $table->unsignedInteger('paddlers_id')->index()->nullable();
-            $table->foreign('paddlers_id')->references('paddlers_id')->on('paddlers');
+            $table->id(); // Utilisation de la méthode id() pour définir la clé primaire
+            $table->unsignedBigInteger('paddlers_id')->index()->nullable();
+            $table->foreign('paddlers_id')->references('id')->on('paddlers'); // Référence à la clé primaire 'id'
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
             $table->string('type_video_article_event', 255)->nullable();
@@ -44,4 +44,3 @@ return new class extends Migration
         Schema::dropIfExists('paddlers');
     }
 };
-
