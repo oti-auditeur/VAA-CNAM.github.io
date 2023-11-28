@@ -32,7 +32,7 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/polynesian-canoe-app.git
+    git clone https://github.com/oti-auditeur/VAA-CNAM.github.io
     ```
 
 2. Install dependencies:
@@ -52,7 +52,7 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
     npm start
     ```
 
-Visit `http://localhost:3000` in your browser to access the application.
+Visit `http://localhost:8000` in your browser to access the application.
 
 ## Usage
 
