@@ -23,13 +23,15 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
 
 ### Prerequisites
 
-- Node.js
-- MongoDB
+- Visual Code
+- Laravel Framework 10.34.2
+- PHP 8.3.0
+- XAMPP Control Panel V3.3.0
 - Other dependencies (check the `package.json` file)
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository in the C:\xampp\htdocs\VAA repository :
 
     ```bash
     git clone https://github.com/oti-auditeur/VAA-CNAM.github.io
