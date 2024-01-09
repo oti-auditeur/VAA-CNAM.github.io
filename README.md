@@ -69,6 +69,7 @@ Visit `http://localhost:8000` in your browser to access the application.
 
 - **Paddlers:**
   - View and register for training sessions
+  - Possibility to register with email
   
 - **Trainers:**
   - Schedule and manage training sessions
