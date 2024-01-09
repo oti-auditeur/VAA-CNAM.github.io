@@ -50,7 +50,7 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
     Create a `.env` file in the root directory and set the necessary variables. You can use `.env.example` as a template.
    Or, just cp .env.example .env
 
-5. Run the application:
+4. Run the application:
 
     ```bash
     npm run dev
@@ -58,6 +58,12 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
     ```
 
 Visit `http://localhost:8000` in your browser to access the application.
+
+5. Migrate the database :
+
+    ```bash
+    php artisan migrate
+    ```   
 
 ## Usage
 
