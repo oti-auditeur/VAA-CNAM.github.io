@@ -40,7 +40,7 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
 2. Install dependencies:
 
     ```bash
-    cd polynesian-canoe-app
+    cd VAA
     composer install
     npm install
     ```
@@ -79,7 +79,7 @@ Visit `http://localhost:8000` in your browser to access the application.
 - **Administrators:**
   - Manage user roles and permissions
   - Credentials :  *email : admin@gmail.com
-  -                *Password : password
+                   *Password : password
   
 ## Contributing
 
