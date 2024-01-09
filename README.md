@@ -26,12 +26,12 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
 - Visual Code
 - Laravel Framework 10.34.2
 - PHP 8.3.0
-- XAMPP Control Panel V3.3.0
+- Laragon V6.0
 - Other dependencies (check the `package.json` file)
 
 ### Installation
 
-1. Clone the repository in the C:\xampp\htdocs\VAA repository :
+1. Clone the repository in the C:\laragon\www\VAA repository :
 
     ```bash
     git clone https://github.com/oti-auditeur/VAA-CNAM.github.io
@@ -41,17 +41,20 @@ Welcome to the Polynesian Canoe Association App repository! This application is 
 
     ```bash
     cd polynesian-canoe-app
+    composer install
     npm install
     ```
 
 3. Configure the environment variables:
 
     Create a `.env` file in the root directory and set the necessary variables. You can use `.env.example` as a template.
+   Or, just cp .env.example .env
 
-4. Run the application:
+5. Run the application:
 
     ```bash
-    npm start
+    npm run dev
+    php artisan serve
     ```
 
 Visit `http://localhost:8000` in your browser to access the application.
@@ -60,9 +63,7 @@ Visit `http://localhost:8000` in your browser to access the application.
 
 - **Paddlers:**
   - View and register for training sessions
-  - Check attendance records
-  - Track personal performance metrics
-
+  
 - **Trainers:**
   - Schedule and manage training sessions
   - Track paddlers' attendance and performance
@@ -70,9 +71,9 @@ Visit `http://localhost:8000` in your browser to access the application.
 
 - **Administrators:**
   - Manage user roles and permissions
-  - View comprehensive reports and analytics
-  - Handle customer support tickets
-
+  - Credentials :  *email : admin@gmail.com
+  -                *Password : password
+  
 ## Contributing
 
 If you'd like to contribute to the development of the Polynesian Canoe Association App, please follow the [contribution guidelines](CONTRIBUTING.md).
